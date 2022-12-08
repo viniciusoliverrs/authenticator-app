@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'core/routes.dart';
+import 'app_routes.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class AppWidget extends StatelessWidget {
     return const MaterialApp(
       initialRoute: Routes.auth,
       onGenerateRoute: Routes.generateRoute,
-      title: 'Flutter Demo',
+      title: 'Biometric Auth App',
     );
   }
 }

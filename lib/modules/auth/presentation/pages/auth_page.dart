@@ -1,7 +1,7 @@
-import 'package:authenticator_app/setup_locate.dart';
+import 'package:authenticator_app/modules/app_di.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/routes.dart';
+import '../../../app_routes.dart';
 import '../controllers/auth_controllers.dart';
 
 class AuthPage extends StatefulWidget {
@@ -13,14 +13,15 @@ class AuthPage extends StatefulWidget {
 
 class _AuthPageState extends State<AuthPage> {
   final ValueNotifier<bool> isLocalAuthFailed = ValueNotifier(false);
-  final AuthController _authController = getIt<AuthController>();
+  late final AuthController _authController;
   @override
   void initState() {
     super.initState();
-    checkAuth();
+    _init();
   }
 
-  checkAuth() async {
+  _init() async {
+    _authController = getIt<AuthController>();
     final isBiometric = await _authController.isBiometricAvailable();
     isLocalAuthFailed.value = false;
 
@@ -46,7 +47,7 @@ class _AuthPageState extends State<AuthPage> {
           builder: (_, failed, __) {
             if (failed) {
               return ElevatedButton(
-                onPressed: checkAuth,
+                onPressed: _init,
                 child: const Text("Try again "),
               );
             }

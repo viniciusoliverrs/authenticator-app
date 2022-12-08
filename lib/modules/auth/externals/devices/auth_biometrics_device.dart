@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:local_auth/local_auth.dart';
 
-import '../../infra/devices/iauth_biometrics_device.dart';
+import '../../infraestruture/devices/iauth_biometrics_device.dart';
 
 class AuthBiometricsDevice implements IAuthBiometricsDevice<BiometricType> {
   final LocalAuthentication auth;

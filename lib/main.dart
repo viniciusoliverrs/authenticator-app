@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'appwidget.dart';
-import 'setup_locate.dart';
+import 'modules/app_widget.dart';
+import 'modules/app_di.dart';
 
 void main() {
   setup();
